@@ -35,7 +35,7 @@ declen = args.declen
 warm_up = 10
 T = 500
 
-causal_mask = torch.tril(torch.ones(max_seq_length, max_seq_length, dtype=torch.bool, device='cuda:9'))
+causal_mask = torch.tril(torch.ones(max_seq_length, max_seq_length, dtype=torch.bool, device=device))
 
 llm = LMBackend(dtype=precision, device=device)
 llm.load_model(checkpoint_path)
