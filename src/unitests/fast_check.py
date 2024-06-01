@@ -1,5 +1,6 @@
 import itertools
 import sys
+sys.path.append("..")
 import time
 from pathlib import Path
 from typing import Optional, Tuple
@@ -62,7 +63,7 @@ args = parser.parse_args()
 
 checkpoint_path = args.checkpoint_path
 device = args.device
-precision = torch.bfloat16
+precision = torch.float32
 use_tp = False
 max_seq_length = args.maxlen
 max_batch_size = args.batch
@@ -71,7 +72,7 @@ declen = args.declen
 warm_up = 10
 T = 500
 
-causal_mask = torch.tril(torch.ones(max_seq_length, max_seq_length, dtype=torch.bool, device='cuda:9'))
+causal_mask = torch.tril(torch.ones(max_seq_length, max_seq_length, dtype=torch.bool, device=device))
 
 model = _load_model(checkpoint_path, device, precision)
 if args.compile:
@@ -81,19 +82,19 @@ with torch.device(device):
         model.setup_caches(max_batch_size=1, max_seq_length=max_seq_length)
 
 
-prompt = torch.tensor([[    1, 15043, 29892,   590,  1024,   338]], device='cuda:9',
+prompt = torch.tensor([[    1, 15043, 29892,   590,  1024,   338]], device=device,
        dtype=torch.int32)
-input_pos = torch.tensor([0, 1, 2, 3, 4, 5], device='cuda:9')
+input_pos = torch.tensor([0, 1, 2, 3, 4, 5], device=device)
 mask = causal_mask[:6]
 
-dec =  torch.tensor([[518]], device='cuda:9', dtype=torch.int32)
-dec_pos = torch.tensor([6], device='cuda:9', dtype=torch.int32)
-cache_pos = torch.tensor([6], device='cuda:9', dtype=torch.int32)
+dec =  torch.tensor([[518]], device=device, dtype=torch.int32)
+dec_pos = torch.tensor([6], device=device, dtype=torch.int32)
+cache_pos = torch.tensor([6], device=device, dtype=torch.int32)
 dec_mask = causal_mask[6:7][None, None, :, :]
 
-dec1 =  torch.tensor([[627]], device='cuda:9', dtype=torch.int32)
-dec_pos1 = torch.tensor([7], device='cuda:9', dtype=torch.int32)
-cache_pos1 = torch.tensor([7], device='cuda:9', dtype=torch.int32)
+dec1 =  torch.tensor([[627]], device=device, dtype=torch.int32)
+dec_pos1 = torch.tensor([7], device=device, dtype=torch.int32)
+cache_pos1 = torch.tensor([7], device=device, dtype=torch.int32)
 dec_mask1 = causal_mask[7:8][None, None, :, :]
 
 with torch.inference_mode():

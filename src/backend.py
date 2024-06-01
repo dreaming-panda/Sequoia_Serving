@@ -32,6 +32,7 @@ class LMBackend:
              
 
     @torch.inference_mode()
+    @torch.backends.cuda.sdp_kernel(enable_flash=False, enable_mem_efficient=False, enable_math=True)
     def inference(self, input_ids: torch.LongTensor, position_ids: torch.LongTensor, storage_ids: torch.LongTensor, attention_mask: torch.Tensor):
             return self.model_forward(
                  model=self.model, 

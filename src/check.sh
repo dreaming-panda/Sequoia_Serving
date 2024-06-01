@@ -1,1 +1,0 @@
-python backend_benchmark.py --checkpoint_path ~/gpt-fast/checkpoints/meta-llama/Llama-2-7b-chat-hf/model.pth --device cuda:9 --maxlen 8 --declen 1 --prefixlen 0 --batch 1 --compile

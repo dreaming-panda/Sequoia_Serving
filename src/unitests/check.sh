@@ -1,0 +1,12 @@
+python backend_benchmark.py --checkpoint_path ../../gpt-fast/checkpoints/meta-llama/Llama-2-7b-chat-hf/model.pth --device cuda:1 --maxlen 2048 --declen 1 --prefixlen 1024 --batch 1 --compile
+python backend_benchmark.py --checkpoint_path ../../gpt-fast/checkpoints/meta-llama/Llama-2-7b-chat-hf/model.pth --device cuda:1 --maxlen 2048 --declen 2 --prefixlen 1024 --batch 1 --compile
+python backend_benchmark.py --checkpoint_path ../../gpt-fast/checkpoints/meta-llama/Llama-2-7b-chat-hf/model.pth --device cuda:1 --maxlen 2048 --declen 4 --prefixlen 1024 --batch 1 --compile
+python backend_benchmark.py --checkpoint_path ../../gpt-fast/checkpoints/meta-llama/Llama-2-7b-chat-hf/model.pth --device cuda:1 --maxlen 2048 --declen 8 --prefixlen 1024 --batch 1 --compile
+python backend_benchmark.py --checkpoint_path ../../gpt-fast/checkpoints/meta-llama/Llama-2-7b-chat-hf/model.pth --device cuda:1 --maxlen 2048 --declen 16 --prefixlen 1024 --batch 1 --compile
+python backend_benchmark.py --checkpoint_path ../../gpt-fast/checkpoints/meta-llama/Llama-2-7b-chat-hf/model.pth --device cuda:1 --maxlen 2048 --declen 32 --prefixlen 1024 --batch 1 --compile
+python backend_benchmark.py --checkpoint_path ../../gpt-fast/checkpoints/meta-llama/Llama-2-7b-chat-hf/model.pth --device cuda:1 --maxlen 2048 --declen 48 --prefixlen 1024 --batch 1 --compile
+python backend_benchmark.py --checkpoint_path ../../gpt-fast/checkpoints/meta-llama/Llama-2-7b-chat-hf/model.pth --device cuda:1 --maxlen 2048 --declen 64 --prefixlen 1024 --batch 1 --compile
+python backend_benchmark.py --checkpoint_path ../../gpt-fast/checkpoints/meta-llama/Llama-2-7b-chat-hf/model.pth --device cuda:1 --maxlen 2048 --declen 80 --prefixlen 1024 --batch 1 --compile
+python backend_benchmark.py --checkpoint_path ../../gpt-fast/checkpoints/meta-llama/Llama-2-7b-chat-hf/model.pth --device cuda:1 --maxlen 2048 --declen 96 --prefixlen 1024 --batch 1 --compile
+python backend_benchmark.py --checkpoint_path ../../gpt-fast/checkpoints/meta-llama/Llama-2-7b-chat-hf/model.pth --device cuda:1 --maxlen 2048 --declen 112 --prefixlen 1024 --batch 1 --compile
+python backend_benchmark.py --checkpoint_path ../../gpt-fast/checkpoints/meta-llama/Llama-2-7b-chat-hf/model.pth --device cuda:1 --maxlen 2048 --declen 128 --prefixlen 1024 --batch 1 --compile
